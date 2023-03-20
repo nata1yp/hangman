@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hangman.Main">
+   <children>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="Application">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#start" text="Start" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadDictionary" text="Load" />
+                        <MenuItem mnemonicParsing="false" onAction="#createDictionary" text="Create" />
+                        <MenuItem mnemonicParsing="false" onAction="#exitGame" text="Exit" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Details">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#showWordLengthPercentage" text="Dictionary" />
+                        <MenuItem mnemonicParsing="false" onAction="#Rounds" text="Rounds" />
+                        <MenuItem mnemonicParsing="false" onAction="#showTheSolution" text="Solution" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <TitledPane alignment="CENTER" collapsible="false" contentDisplay="CENTER" expanded="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="43.0" prefWidth="600.0" text="HANGMAN GAME" textAlignment="CENTER">
+               <font>
+                  <Font name="Jokerman" size="24.0" />
+               </font>
+            </TitledPane>
+            <SplitPane dividerPositions="0.3333, 0.6666" prefHeight="42.0" prefWidth="600.0" scaleShape="false">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="158.0" prefWidth="159.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="6.0" prefHeight="30.0" prefWidth="130.0" text="Available Words:">
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="availability" layoutX="144.0" layoutY="6.0" prefHeight="30.0" prefWidth="100.0" text="-" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="158.0" prefWidth="156.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="5.0" prefHeight="30.0" prefWidth="130.0" text="Score:">
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="points" layoutX="69.0" layoutY="5.0" prefHeight="30.0" prefWidth="100.0" text="-" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="122.0" prefWidth="116.0">
+                     <children>
+                        <Label fx:id="percentage" layoutX="136.0" layoutY="5.0" prefHeight="30.0" prefWidth="123.0" text="-" />
+                        <Label layoutX="14.0" layoutY="5.0" prefHeight="30.0" prefWidth="208.0" text="Successful tries:">
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </items>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </SplitPane>
+            <SplitPane dividerPositions="0.666" prefHeight="502.0" prefWidth="1200.0">
+              <items>
+                  <ImageView fx:id="imageHangman" fitHeight="502.0" fitWidth="662.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@png/intro.png" />
+                     </image>
+                  </ImageView>
+                  <GridPane fx:id="gridLetters" alignment="CENTER" hgap="20.0" prefHeight="501.0" prefWidth="466.0" vgap="20.0">
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding></GridPane>
+              </items>
+            </SplitPane>
+            <GridPane fx:id="gridWord" alignment="CENTER" hgap="20.0" vgap="20.0">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
